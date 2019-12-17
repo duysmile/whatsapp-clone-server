@@ -6,14 +6,19 @@
   "private": true,
   "scripts": {
     "start": "ts-node index.ts",
-    "format": "prettier \"**/*.ts\" --write"
+    "format": "prettier \"**/*.ts\" --write",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.2",
     "@types/graphql": "^14.5.0",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.17",
+    "apollo-server-testing": "^2.9.14",
+    "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   },
@@ -24,6 +29,21 @@
     "graphql": "^14.5.8",
     "graphql-import": "^0.7.1",
     "graphql-scalars": "^1.0.4",
-    "graphql-tools": "^4.0.6"
+    "graphql-tools": "^4.0.6",
+    "jest-junit": "^10.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    },
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   }
 }
