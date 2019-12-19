@@ -1,16 +1,18 @@
 import { createTestClient } from 'apollo-server-testing';
 import { ApolloServer, gql } from 'apollo-server-express';
+
 import schema from '../../schema';
 
-describe('Query Chats', () => {
-  it('should fetch all data chats', async () => {
+describe('Query chat', () => {
+  it('should fetch specified chat', async () => {
     const server = new ApolloServer({ schema }) as any;
     const { query } = createTestClient(server);
 
     const res = await query({
+      variables: { chatId: 1 },
       query: gql`
-        query GetChats {
-          chats {
+        query GetChat($chatId: ID!) {
+          chat {
             id
             name
             picture
