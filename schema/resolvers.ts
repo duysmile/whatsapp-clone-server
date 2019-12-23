@@ -20,8 +20,35 @@ const resolvers = {
     chats() {
       return chats;
     },
-    chat(root: any, { chatId }: any) {
+    chat(_root: any, { chatId }: any) {
       return chats.find(chat => chat.id === chatId);
+    },
+  },
+
+  Mutation: {
+    addMessage(_root: any, { chatId, content }: any) {
+      const chatIndex = chats.findIndex(chat => chat.id === chatId);
+      if (chatIndex === - 1) {
+        return null;
+      }
+
+      const chat = chats[chatIndex];
+
+      const messageIds = messages.map(message => Number(message.id));
+      const messageId = String(Math.max(...messageIds) + 1);
+      const message = {
+        content,
+        id: messageId,
+        createdAt: new Date(),
+      };
+
+      messages.push(message);
+      chat.messages.push(messageId);
+      // order last chat in top
+      chats.splice(chatIndex, 1);
+      chats.unshift(chat);
+
+      return message;
     },
   },
 };

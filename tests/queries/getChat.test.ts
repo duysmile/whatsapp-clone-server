@@ -9,10 +9,10 @@ describe('Query chat', () => {
     const { query } = createTestClient(server);
 
     const res = await query({
-      variables: { chatId: 1 },
+      variables: { chatId: '1' },
       query: gql`
         query GetChat($chatId: ID!) {
-          chat {
+          chat(chatId: $chatId) {
             id
             name
             picture

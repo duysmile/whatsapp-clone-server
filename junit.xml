@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" time="7.695">
-  <testsuite name="Query Chats" errors="0" failures="0" skipped="0" timestamp="2019-12-17T14:34:17" time="6.299" tests="1">
-    <testcase classname="Query Chats should fetch all data chats" name="Query Chats should fetch all data chats" time="0.042">
+<testsuites name="jest tests" tests="3" failures="0" time="13.333">
+  <testsuite name="Query Chats" errors="0" failures="0" skipped="0" timestamp="2019-12-23T17:08:42" time="9.861" tests="1">
+    <testcase classname="Query Chats should fetch all data chats" name="Query Chats should fetch all data chats" time="0.077">
+    </testcase>
+  </testsuite>
+  <testsuite name="Query chat" errors="0" failures="0" skipped="0" timestamp="2019-12-23T17:08:42" time="9.884" tests="1">
+    <testcase classname="Query chat should fetch specified chat" name="Query chat should fetch specified chat" time="0.114">
+    </testcase>
+  </testsuite>
+  <testsuite name="Add Message" errors="0" failures="0" skipped="0" timestamp="2019-12-23T17:08:42" time="10.061" tests="1">
+    <testcase classname="Add Message should add message to specify chat" name="Add Message should add message to specify chat" time="0.081">
     </testcase>
   </testsuite>
 </testsuites>
